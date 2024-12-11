@@ -16,7 +16,7 @@ console.log(`Your Node.js version is: ${nodeVersion}`);
 
 const app = express() 
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: "*",
     methods: ['GET', 'POST', 'PUT', "DELETE"],
     credentials: true
 }))
