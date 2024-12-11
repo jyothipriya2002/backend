@@ -16,9 +16,7 @@ console.log(`Your Node.js version is: ${nodeVersion}`);
 
 const app = express() 
 app.use(cors({
-    origin: "*",
-    methods: ['GET', 'POST', 'PUT', "DELETE"],
-    credentials: true
+    origin: "*"
 }))
 app.use(express.json())
 app.use(cookieParser())
