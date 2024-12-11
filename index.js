@@ -1,9 +1,4 @@
-// import express from "express";
-// import cors from 'cors'
-// import { adminRouter } from "./Routes/AdminRoute.js";
-// import { EmployeeRouter } from "./Routes/EmployeeRoute.js";
-// import Jwt from "jsonwebtoken";
-// import cookieParser from "cookie-parser";
+
 const express = require("express");
 const cors = require("cors");
 const adminRouter = require("./Routes/AdminRoute.js");
@@ -15,14 +10,15 @@ const nodeVersion = process.version;
 console.log(`Your Node.js version is: ${nodeVersion}`);
 
 const app = express() 
-app.use(cors({
-    origin: "*"
-}))
+app.use(cors({origin:["http://localhost:5173"], credentials: true,}))
 app.use(express.json())
 app.use(cookieParser())
 app.use('/auth', adminRouter)
 app.use('/employee', EmployeeRouter)
 app.use(express.static('Public'))
+app.get("/", (req, res)=>{
+    return res.send("iam server running fine")
+})
 
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;

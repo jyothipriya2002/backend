@@ -1,10 +1,6 @@
-// import mysql from 'mysql2';
+
 const mysql = require('mysql2');
 
-// const cors = require("cors");
-
-// app.use(cors({ origin: "*"}));
-// Create the MySQL connection with the correct credentials
 const Connection = mysql.createConnection({
   host: 'empdb-1.cpciemww60k8.eu-north-1.rds.amazonaws.com',
   user: 'admin',
